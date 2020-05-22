@@ -1,0 +1,16 @@
+gcloud functions delete bitcoinPrice
+gcloud functions delete getRandomQuote
+gcloud functions delete getUUID
+gcloud functions delete helloGCSGeneric
+gcloud functions delete helloGET
+gcloud functions delete helloGreeting
+gcloud functions delete processFile
+gcloud functions delete subscribe
+gcloud functions delete sendComic
+gcloud functions delete helloVersion
+
+gcloud pubsub topics delete pubsubtopic1
+gsutil rm -r gs://gcs-function-bucket1
+gsutil rm -r gs://gcs-function-translation-bucket
+gsutil rm -r gs://gcs-function-translation-bucket_es
+

@@ -1,0 +1,35 @@
+cd bitcoinprice-http/
+gcloud functions deploy bitcoinPrice --trigger-http --region=us-central1 --runtime=nodejs6 
+cd ..
+cd getrandomquote-function/
+gcloud functions deploy getRandomQuote --trigger-http --region=us-central1 --runtime=nodejs6 
+cd ..
+cd hellogreeting-http/
+gcloud functions deploy helloGreeting --trigger-http --region=us-central1 --runtime=nodejs6 
+cd ..
+cd helloworld-http/
+gcloud functions deploy helloGET --trigger-http --region=us-central1 --runtime=nodejs6 
+cd ..
+cd uuid-http/
+gcloud functions deploy getUUID --trigger-http --region=us-central1 --runtime=nodejs6 
+cd ..
+cd hello-pubsub
+gcloud pubsub topics create pubsubtopic1
+gcloud functions deploy subscribe --trigger-resource pubsubtopic1 --trigger-event google.pubsub.topic.publish  --region=us-central1 --runtime=nodejs6 
+cd ..
+cd hello-gcs
+gsutil mb gs://gcs-function-bucket1
+gcloud functions deploy helloGCSGeneric --trigger-resource gs://gcs-function-bucket1 --trigger-event google.storage.object.finalize  --region=us-central1 --runtime=nodejs6 
+cd ..
+cd translation-process
+gsutil mb gs://gcs-function-translation-bucket
+gsutil mb gs://gcs-function-translation-bucket_es
+gcloud functions deploy processFile --trigger-resource gs://gcs-function-translation-bucket --trigger-event google.storage.object.finalize  --region=us-central1 --runtime=nodejs6 
+
+cd ..
+cd puppeteer
+gcloud functions deploy sendComic --trigger-http --region=us-central1 --runtime=nodejs8 --memory=1024MB
+cd..
+cd environment
+gcloud functions deploy helloVersion --trigger-http --region=us-central1 --runtime=nodejs6 
+
